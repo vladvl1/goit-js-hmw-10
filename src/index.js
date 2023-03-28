@@ -23,6 +23,7 @@ const validInput = refs.input.value.trim();
             console.log(data.length);
 
             if (data.length === 1) {
+                refs.info.innerHTML = '';
                 refs.list.classList.add("is-hidden");
                 refs.info.classList.remove("is-hidden");
                 data.map(dat => refs.info.innerHTML = countryDiv(dat));
