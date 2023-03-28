@@ -29,6 +29,8 @@ const validInput = refs.input.value.trim();
                 data.map(dat => refs.info.innerHTML = countryDiv(dat));
             }
             else if (data.length > 10) {
+                refs.list.classList.add("is-hidden");
+                refs.info.classList.add("is-hidden");
                 Notify.info('Too many matches found. Please enter a more specific name.');
             } else {
                 refs.info.classList.add("is-hidden");
@@ -40,7 +42,7 @@ const validInput = refs.input.value.trim();
             };
         }).catch(err => {
             console.log(err);
-            Notiflix.Report.failure("Something went wrong,try again!");
-            refs.input.reset();
+            Notify.warning("Try again!)");
+            refs.input = '';
         });
 }
