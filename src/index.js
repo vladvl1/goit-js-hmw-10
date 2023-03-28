@@ -18,11 +18,25 @@ refs.input.addEventListener('input', debounce(handleInput, DEBOUNCE_DELAY));
 function handleInput(e) {
 const validInput = refs.input.value.trim();
 
-fetchCountries(refs.input.value)
-    .then(data => {
-        if (data.length > 10) {
-        Notify.info('Too many matches found. Please enter a more specific name.');
-        }
-        refs.info.innerHTML = countryDiv(refs.input.value);
-    })
+    fetchCountries(validInput)
+        .then(data => {
+            console.log(data.length);
+
+            if (data.length === 1) {
+                refs.list.innerHTML = '';
+                data.map(dat => refs.info.innerHTML = countryDiv(dat));
+            }
+            else if (data.length > 10) {
+                Notify.info('Too many matches found. Please enter a more specific name.');
+            } else {
+                refs.info.innerHTML = '';
+                data.forEach(dat => {
+                    refs.list.insertAdjacentHTML("beforebegin", countryList(dat));
+                });
+            };
+        }).catch(err => {
+            console.log(err);
+            Notiflix.Report.failure("Something went wrong,try again!");
+            refs.input.reset();
+        });
 }

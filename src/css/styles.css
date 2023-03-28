@@ -18,3 +18,12 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+.container{
+  display: flex;
+  gap: 20;
+  margin-left: 0;
+}
+.country-item{
+  display: flex;
+  gap: 20;
+}

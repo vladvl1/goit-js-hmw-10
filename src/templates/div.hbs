@@ -1,8 +1,12 @@
-<p><span><svg>
-            <use href={{this.flags.svg}}></use>
-        </svg></span>{{this.name}}</p>
+
+<h1><img width=30 height=30 src='{{this.flags.svg}}'>
+<b>{{this.name.official}}</b></h1>
+
 <ul>
-    <li>Capital: {{this.capital}}</li>
-    <li>Population: {{this.population}}</li>
-    <li>Languages: {{this.languages}}</li>
+    <li><b>Capital:</b>  {{this.capital}}</li>
+    <li><b>Population:</b>  {{this.population}}</li>
+    <li><b>Languages:</b>
+      {{#each this.languages}}
+         {{this}}
+      {{/each}}</li>
 </ul>
