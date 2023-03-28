@@ -43,6 +43,5 @@ const validInput = refs.input.value.trim();
         }).catch(err => {
             console.log(err);
             Notify.warning("Try again!)");
-            refs.input = '';
         });
 }
