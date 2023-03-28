@@ -23,15 +23,18 @@ const validInput = refs.input.value.trim();
             console.log(data.length);
 
             if (data.length === 1) {
-                refs.list.innerHTML = '';
+                refs.list.classList.add("is-hidden");
+                refs.info.classList.remove("is-hidden");
                 data.map(dat => refs.info.innerHTML = countryDiv(dat));
             }
             else if (data.length > 10) {
                 Notify.info('Too many matches found. Please enter a more specific name.');
             } else {
-                refs.info.innerHTML = '';
+                refs.info.classList.add("is-hidden");
+                refs.list.classList.remove("is-hidden");
+                refs.list.innerHTML = '';
                 data.forEach(dat => {
-                    refs.list.insertAdjacentHTML("beforebegin", countryList(dat));
+                    refs.list.insertAdjacentHTML("beforeend", countryList(dat));
                 });
             };
         }).catch(err => {
