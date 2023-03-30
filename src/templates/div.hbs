@@ -1,12 +1,12 @@
 
-<h1><img width=30 height=30 src='{{this.flags.svg}}'>
-<b>{{this.name.official}}</b></h1>
+<h2><img width=30 height=30 src='{{this.flags.svg}}'>
+<b>{{this.name.official}}</b></h2>
 
 <ul>
     <li><b>Capital:</b>  {{this.capital}}</li>
     <li><b>Population:</b>  {{this.population}}</li>
     <li><b>Languages:</b>
       {{#each this.languages}}
-         {{this}}
+         {{this}}, 
       {{/each}}</li>
 </ul>
