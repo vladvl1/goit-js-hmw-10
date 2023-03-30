@@ -5,7 +5,7 @@ import fetchCountries from "./fetchCountries";
 import debounce from 'lodash.debounce';
 import Notiflix, { Notify } from 'notiflix';
 
-const DEBOUNCE_DELAY = 1000;
+const DEBOUNCE_DELAY = 300;
 
 const refs = {
  input: document.querySelector("#search-box"),
